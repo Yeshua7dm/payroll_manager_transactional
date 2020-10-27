@@ -1,0 +1,275 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="P30FileSequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_CompanyName" Type="InArgument(x:String)" />
+    <x:Property Name="in_Period" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>992.888888888889,1997.77777777778</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="P30 File Sequence" sap:VirtualizedContainerService.HintSize="475.555555555556,1792.88888888889" sap2010:WorkflowViewState.IdRef="Sequence_45">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:Window" Name="P30PaySlipWindow" />
+      <Variable x:TypeArguments="ui:Window" Name="PayRollManagerWindow" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:WindowScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ApplicationWindow="[PayRollManagerWindow]" DisplayName="Attach Payroll Manager Window" sap:VirtualizedContainerService.HintSize="433.777777777778,264.888888888889" sap2010:WorkflowViewState.IdRef="WindowScope_19" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager*  -  {{in_CompanyName}}*' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'pm3.exe Payroll'" sap:VirtualizedContainerService.HintSize="333.777777777778,156.444444444444" sap2010:WorkflowViewState.IdRef="ClickImage_15" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="2.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC0AAAA0CAYAAAAew7HJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAITcAACE3ATNYn3oAAASMSURBVGhD7ZjPS1RdGMffTavoD6h90C6iP6FNRLRr0SYKojatCqJVoYggDCQKZoYos6hZOGgQjClhojhROimhgaQOpkz+GueXP8ZX3+e9nxNHzx3O5L3W3PcHs/jCnHO+57mf+8w557n3/pHJZOS/pip0UKpCB6UqdFDyBD03Nyejo6MyPDzsW/F4XKanpyWdTltjH0WeoAEOh8PS3NzsW62trTI4OCgrKyvW2EeRJ2gyBkBDQ4O0tLRIR0fHoWpra5NQKCR1dXUSiURkbGxMZmZmfgu8L2iA+/r6ZGJi4lANDQ1JZ2en1NbWSmNjo7S3t8vAwIDMz89br+FHvqDJIEA2T6nIaldXl9TU1Kh/qKmpSXp6etR8wH8l4xWHZnmwH1jX/f39CpyMM26b50UVh66vr5fe3l5ZXl5WJwkbk5tIJBIq20c5VQKF5ugj47QRv+mzzf+ZAoUmq2SXLJNtsk72bfN/pkChzTHWNeubde63AP0j0GSbE4RYgPstQBWHNosLc03ps9xvAao4tFlcmG9KV02/BcgTtH72iEajMjU1ZfWUKplMSiwWUzfrR8xhri2mlido/ZQ3Pj4uCwsLVk+plpaWZHJyUv1LfsQc5tpiapWFXl/nwhkHMivfvrm1uJh11p3bT5v+Ui/ziUM804/S6Yx8/55x+WnTX+o1VRaaC71+XZDHj7fk4UO3QqFNZ7fnXX7a9Jd6mU8c4pl+9PVrVl6+3HD5adNf6jVVFpoMccFTp/bkxIm/XDp/fleePt10+WnTX+plPnGIZ/rRhw85uX276PLTpr/Ua6osNH8Vd06g06f35MqVHbl+vah0505RHj3aUqBkmKURixXkwYPtfY/WzZtFFefJk03lSSazzmbOOSdLwXn625R799xzaNPPOD4bmydogF+82JD37/NK0WhBgZNZlgRrGZhEIrfv0RoYyKs4587tqpvC8+ZNXm7cKMqFC38qQNNPm37G8dnYPEGTAQLqMX7TxxgevOZcU7Y43DRgZ87sOs/Z7mVGm37G8ZljWv9faC/LQ8/j9+fPB8vEtjwCgfayEfW8eDzvPCRt7XttGzEQ6GPHRI4fPziWbEee1qtXBbl8eWffe/Lknorz5Utuv3AEAn327K7cuvUjY8hWXLQ+fcrJs2fugqGlC0cg0NeuFeXt27zqQ7YyrrW6mpFU6qAsk2HikHFdOAKB1rve5jtMtjhVaFN+oSm5VDAuZCoS+bG+L17cUacKx+G7d3m5f39brl7dcd5atlx+2vQzjs92rd8GzbOCLs2mgCUO8ByH7IfZ2awCev58Q+7e3Xb5adPPOD7btcpCE5xTguNNFwWbTysc3pBLl3bUX2vKVoC0iEls0+/lWmWhOR041jiPdVGw+bQ+fswpcNakKVsB0iImsU2/l2uVhTalP7LwGaDSWl1ddd5y1q0cWp6gSz9nVVJ8fUqlUlYOLU/Q+sMhH14qre7ubmcDzlo5tDxB84bMqz3fMSqtkZERZ9MuWjm0PEHzSs+3CD7AVFoAr62tWTm0PEH/21SFDkpV6KBUhQ5GGfkb1Zxu/cYlmB4AAAAASUVORK5CYII=" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="d46da663-f3f1-4c9e-955a-77227d4062b7">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+          </ui:ClickImage>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WindowScope>
+    <ui:WindowScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ApplicationWindow="[P30PaySlipWindow]" DisplayName="Attach P30Slip Window" sap:VirtualizedContainerService.HintSize="433.777777777778,303.111111111111" sap2010:WorkflowViewState.IdRef="WindowScope_20" InformativeScreenshot="9c3a949d6fe1cec298cff465437c0890" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  {{in_CompanyName}}  -*' /&gt;&lt;wnd cls='Twin_report' title='P30 Employer&amp;apos;s Payslip' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'pm3.exe Payroll'" sap:VirtualizedContainerService.HintSize="333.777777777778,156.444444444444" sap2010:WorkflowViewState.IdRef="ClickImage_14" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:ClickImage.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:ClickImage.CursorPosition>
+            <ui:ClickImage.Image>
+              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="2.25" Profile="Basic" TargetImageBase64="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" />
+            </ui:ClickImage.Image>
+            <ui:ClickImage.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="43b53710-4a2b-4491-beae-1dbae510795c">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:ClickImage.Target>
+          </ui:ClickImage>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WindowScope>
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Save PDF Window" sap:VirtualizedContainerService.HintSize="433.777777777778,215.111111111111" sap2010:WorkflowViewState.IdRef="WindowScope_21" Selector="&lt;wnd app='pm3.exe' cls='#32770' title='Save report to a PDF file:' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click  Save 'Button'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_42" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click.CursorPosition>
+              <ui:CursorPosition Position="Center">
+                <ui:CursorPosition.OffsetX>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetX>
+                <ui:CursorPosition.OffsetY>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:CursorPosition.OffsetY>
+              </ui:CursorPosition>
+            </ui:Click.CursorPosition>
+            <ui:Click.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="34fbc37e-b677-42ab-ba70-45d1afea6fd8" InformativeScreenshot="0fec7afe47c700ac41af1c57347b4f61" Selector="&lt;wnd app='pm3.exe' title='Save report to a PDF file:' /&gt;&lt;wnd aaname='Save' cls='Button' /&gt;">
+                <ui:Target.TimeoutMS>
+                  <InArgument x:TypeArguments="x:Int32" />
+                </ui:Target.TimeoutMS>
+                <ui:Target.WaitForReady>
+                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                </ui:Target.WaitForReady>
+              </ui:Target>
+            </ui:Click.Target>
+          </ui:Click>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WindowScope>
+    <ui:WindowScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" ApplicationWindow="[P30PaySlipWindow]" DisplayName="Send EMail Window" sap:VirtualizedContainerService.HintSize="433.777777777778,797.333333333333" sap2010:WorkflowViewState.IdRef="WindowScope_22" InformativeScreenshot="9c3a949d6fe1cec298cff465437c0890" Selector="&lt;wnd app='pm3.exe' cls='Tpaymain' title='Payroll Manager 100  -  {{in_CompanyName}}  -  *' /&gt;&lt;wnd cls='Twin_report' title='P30 Employer&amp;apos;s Payslip' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence sap:VirtualizedContainerService.HintSize="375.555555555556,650.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_44">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'pm3.exe Payroll'" sap:VirtualizedContainerService.HintSize="333.777777777778,156.444444444444" sap2010:WorkflowViewState.IdRef="ClickImage_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:ClickImage.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:ClickImage.CursorPosition>
+              <ui:ClickImage.Image>
+                <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" InitialScalingFactor="2.25" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAoCAYAAABaW2IIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAITcAACE3ATNYn3oAAAMDSURBVGhD7ZdNSypxFMbP5+gT3L3fQvoMF1d9gcCtvdqiN+gFiQhqitxIYEgWBBlF3lQ0iLLIyoWVpqVFi6LoaR4HYyiTAWcudy6z+G0amjm/ec75H0dqtRr+Vxw5u+LI2RVHzq44cnbFkbMrhuSSySQURUEoFMLx8THy+Tyi0SgCgQC2t7dRLpdxeZlEKqVgd3fCco6OoiiV8k1r1WNIjmJutxsejwcbGxtIp9Pwer1wuVwYGRnB1dVVXUxR3Jic/GU50ahXfcHpprXqMSTHxCjW3d2NWCyGw8ND+P1+dHZ2YmZmBjc3N/U3ygf39Egdv18wPS1YXGyPuTnB2Jh2zwah0G+cn/9pWqseQ3JsRSZGsYuLi3pS8Xgc4XAYmUwGlUrlm9z4uGB9XZDLtUcqJVhaslCOM8ZWZGIUK5VKyGazSCQSagE53N/ff8oxMYrxre/vizqPgqcnwfu7ADDOy4uozxacnQnW1gRTU4LhYUFvr8lyPDw4Y2xFJkYxHiZdXV0IBoMoFoufcmxFJkaxzU2tsJMTwetrc4mfuL0V9Vna/+/saPcLBgUDAybLUYSHB2eMrcjEKNbR0QGfz4dCofApx8TYTkyMhY2OCra2BI+Pgudn45yeCpaXBbOzgoMD7W+8z9CQyXI87nkq8vDgjLEVmRjFIpFIvU2/yrEVmRgLaodEQnB9baEc9xhnjaciDw/OGFuRiVGsWq1+k+OMsRWZGItigizMKEyN6XH23t4slGvAU5NrgXuPi11/7atcY3YoyATZoqurxuG8ce4a97FcjuuA+44LnYL6az/JMUG2KGeQxRqFJyVT+2ty3HNc5BRkgvprP8mZheVyXOAUZIJsUf0128s1aLXEbS/XaonbXq7VEl9YEFVeK8ZMHh60XzyWy7Va4hMTgpUV7S2bCcXm5wX9/RbLtVrifX2CwUHtDZsNxUz/KjACv475EckHW83eXkD9xZRtWoce0+T42c+vY75Rq6HY3V2paR16TJP7F3Hk7IojZ1ccObviyNmTGj4A5KTw9Qz4Fy0AAAAASUVORK5CYII=" />
+              </ui:ClickImage.Image>
+              <ui:ClickImage.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="43b53710-4a2b-4491-beae-1dbae510795c">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:ClickImage.Target>
+            </ui:ClickImage>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'TButton'" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_43" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e8a7fb53-1e23-4b26-9979-f98307d4d1ab" InformativeScreenshot="18bc8810b62b2b23f5394423aaa2a279" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_email_templates' title='E-mail templates' /&gt;&lt;wnd cls='TButton' title='OK' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click" sap:VirtualizedContainerService.HintSize="333.777777777778,106.666666666667" sap2010:WorkflowViewState.IdRef="Click_44" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="939b6ff6-a8ce-451c-aeed-965a1b6eb35c" InformativeScreenshot="c20519bb64664ac1a79044362eda5f66" Selector="&lt;wnd app='pm3.exe' cls='Tdlg_askbox' title='Moneysoft E-mailer' /&gt;&lt;wnd cls='TButton' title='OK' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:CloseWindow Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Close Window" sap:VirtualizedContainerService.HintSize="333.777777777778,68.4444444444444" sap2010:WorkflowViewState.IdRef="CloseWindow_5" UseWindow="[P30PaySlipWindow]" WaitForReady="INTERACTIVE" />
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WindowScope>
+  </Sequence>
+</Activity>
